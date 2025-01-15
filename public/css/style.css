@@ -1,0 +1,109 @@
+
+
+
+.inconsolata-calculatrice {
+    font-family: "Inconsolata", serif;
+    font-optical-sizing: auto;
+    font-weight: 400; 
+    font-style: normal;
+    font-variation-settings:
+        "wght" 400, 
+        "wdth" 100; 
+}
+
+
+.orbitron-nombres {
+  font-family: "Orbitron", serif;
+  font-optical-sizing: auto;
+  font-weight: 400; 
+  font-style: normal;
+  font-variation-settings:
+      "wght" 400, 
+      "wdth" 100; 
+}
+
+.pacifico-regular {
+    font-family: "Pacifico", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+ 
+
+body {
+    font-family: "Pacifico";
+    background: linear-gradient(135deg, rgb(207, 1, 121) 0%, rgb(249, 72, 181) 50%, rgb(249, 130, 223) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    
+  }
+  
+  h1 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .calculator {
+    background-color: rgb(155, 26, 167);
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    border-right:rgb(82, 12, 88) solid 8px;
+    border-bottom:rgb(82, 12, 88) solid 5px
+
+  }
+  
+  #result {
+    width: 100%;
+    height: 50px;
+    font-size: 1.5rem;
+    text-align: right;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, rgb(207, 1, 121) 0%, rgb(249, 72, 181) 50%, rgb(249, 130, 223) 100%);
+    font-family: Orbitron;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    
+  }
+  
+  button {
+    width: 60px;
+    height: 60px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: grab;
+    background-color: #e0e0e0;
+    color: black;
+    font-family: Orbitron;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), -1px -1px 2px rgba(255, 255, 255, 0.2);
+  }
+  
+  button:hover {
+    background-color: #d0d0d0;
+  }
+  
+  #clear, #add, #subtract, #multi, #division {
+    background-color: #722078;
+    color: white;
+    box-shadow: 2px 2px 5px rgba(219, 91, 0, 0.3), -1px -1px 2px rgba(255, 255, 255, 0.2);
+
+  }
+  
+  #equal {
+    background: linear-gradient(135deg, rgb(186, 55, 162) 0%, rgb(210, 94, 207) 50%, rgb(248, 143, 250) 100%);
+    color: white;
+    
+  }
