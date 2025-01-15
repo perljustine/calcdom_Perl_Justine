@@ -48,14 +48,17 @@ body {
   }
   
   .calculator {
-    background-color: rgb(155, 26, 167);
+    background-color: rgb(175, 74, 185);
     border-radius: 10px;
     padding: 20px;
     width: 300px;
-    border-right:rgb(82, 12, 88) solid 8px;
-    border-bottom:rgb(82, 12, 88) solid 5px
+    border-bottom:rgb(120, 51, 126) solid 5px;
+    border-right:rgb(120, 51, 126) solid 5px;
+    border-top:rgb(195, 84, 205) solid 5px;
+    border-left:rgb(195, 84, 205) solid 5px;
 
   }
+
   
   #result {
     width: 100%;
@@ -63,12 +66,16 @@ body {
     font-size: 1.5rem;
     text-align: right;
     margin-bottom: 10px;
-    border: 1px solid #ddd;
+    border-top: inset 2px rgb(195, 84, 205); 
+    border-left: inset 2px rgb(195, 84, 205);
+    border-bottom: inset 2px rgb(150, 68, 158);
+    border-right: inset 2px rgb(147, 80, 153); 
     border-radius: 5px;
     padding: 0 10px;
     box-sizing: border-box;
     background: linear-gradient(135deg, rgb(207, 1, 121) 0%, rgb(249, 72, 181) 50%, rgb(249, 130, 223) 100%);
     font-family: Orbitron;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(255, 255, 255, 0.2);
   }
   
   .row {
@@ -88,7 +95,10 @@ body {
     background-color: #e0e0e0;
     color: black;
     font-family: Orbitron;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), -1px -1px 2px rgba(255, 255, 255, 0.2);
+    border-right: 3px solid #a49d9d;
+    border-bottom: 3px solid #a49d9d;
+    border-top: 3px solid #f1f1f1;
+    border-left: 3px solid #f1f1f1;
   }
   
   button:hover {
@@ -97,13 +107,20 @@ body {
   
   #clear, #add, #subtract, #multi, #division {
     background-color: #722078;
+    border-right: 3px solid #421245;
+    border-bottom: 3px solid #421245;
+    border-top: 3px solid #712c76;
+    border-left: 3px solid #712c76;
     color: white;
-    box-shadow: 2px 2px 5px rgba(219, 91, 0, 0.3), -1px -1px 2px rgba(255, 255, 255, 0.2);
 
   }
   
   #equal {
     background: linear-gradient(135deg, rgb(186, 55, 162) 0%, rgb(210, 94, 207) 50%, rgb(248, 143, 250) 100%);
     color: white;
+    border-bottom: 3px solid #7b1682;
+    border-right: 3px solid #7b1682;
+    border-left: 3px solid #c14dc9;
+    border-top: 3px solid #c14dc9;
     
   }

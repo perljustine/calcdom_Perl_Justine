@@ -109,6 +109,7 @@ function clearall() {
     Valuecalc = "";
     display.value = Valuecalc;
     errorSound.play();
+    
 } 
 
 // Fonction pour calculer le résultat
