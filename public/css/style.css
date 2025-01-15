@@ -32,15 +32,15 @@
 
 body {
     font-family: "Pacifico";
-    background: linear-gradient(135deg, rgb(207, 1, 121) 0%, rgb(249, 72, 181) 50%, rgb(249, 130, 223) 100%);
+    /* background: linear-gradient(135deg, rgb(207, 1, 121) 0%, rgb(249, 72, 181) 50%, rgb(249, 130, 223) 100%); */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    
-  }
-  
+    background-image: url(../img/school-supplies-art-classes.jpg);
+    background-size: cover;
+}
   h1 {
     color: white;
     font-size: 2.5rem;
@@ -52,8 +52,8 @@ body {
     border-radius: 10px;
     padding: 20px;
     width: 300px;
-    border-bottom:rgb(120, 51, 126) solid 5px;
-    border-right:rgb(120, 51, 126) solid 5px;
+    border-bottom:rgb(138, 65, 145) solid 5px;
+    border-right:rgb(138, 65, 145) solid 5px;
     border-top:rgb(195, 84, 205) solid 5px;
     border-left:rgb(195, 84, 205) solid 5px;
 
