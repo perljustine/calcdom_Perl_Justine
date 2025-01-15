@@ -2,7 +2,7 @@
 // Création du "corps" de l'HTML
 let body = document.querySelector('body');
 let h1 = document.createElement('h1');
-titre = document.createTextNode('Calculatrice');
+let titre = document.createTextNode('Calculatrice');
 h1.appendChild(titre);
 body.appendChild(h1);
 
@@ -32,15 +32,16 @@ const buttons = [
     ['0', '00', '='],
 ];
 // Je stocke mes valeurs pour mes boutons dans un index composé de 5 tableaux qui représente chaque rangée de ma calc
-
 buttons.forEach((row, rowIndex) => {
     const rowElement = document.createElement('div');
-    rowElement.classList.add('row');  // pour chaque row on rajoute une div avec la classe row 
+    rowElement.classList.add('row'); 
+    // Pour chaque row on rajoute une div avec la classe row 
+
     row.forEach(buttonValue => {
         const button = document.createElement('button');
-        button.textContent = buttonValue;  // création des "boutons" pour la const buttons créée 
-    
-        
+        button.textContent = buttonValue; 
+        // Création des "boutons" pour la const buttons créée 
+
         const idMap = {
             "C": "clear",
             "+": "add",
@@ -49,23 +50,101 @@ buttons.forEach((row, rowIndex) => {
             "/": "division",
             ".": "dot",
             "=": "equal"
-        }; // Afin de raccourcir mon code j'ai créé un Map d'ID pour ne pas devoir faire de if/else pour chaque valeur 
+        }; // Map d'ID pour éviter les if/else pour chaque valeur , une map permet de définir des 
+       // valeurs claires et permet d'avoir plus de flexibilité dans l'assignation de valeurs 
 
         button.setAttribute('id', idMap[buttonValue] || buttonValue.toString());
-        // pour le button créé l'id sera soit celui retrouvé dans l'index au dessus soit sera transcrit en string pour pouvoir réaliser le calcul
-        
+        // L'id sera soit celui du map ci-dessus soit converti en string grâce au to.String()
 
+        // Ajouter l'événement de clic , quand on click sur le bouton il va récuperer la valeur 
+        button.onclick = () => ClickBouton(buttonValue);
 
-        // Ajouter l'événement de clic
-        button.onclick = () => handleButtonClick(buttonValue);
-    
         // Ajouter le bouton à la ligne
-        rowElement.appendChild(button);
+        rowElement.appendChild(button); 
     });
 
     // Ajouter la ligne au conteneur principal
     calculatorContainer.appendChild(rowElement);
+});
+
+
+// On crée une variable qui va stocker ce qui est affiché sur la calculatrice
+let Valuecalc = "";
+
+// Fonction principale pour gérer les clicks sur les boutons
+function ClickBouton(valeur) {
+    // Si on clique sur =, on calcule le résultat
+    if (valeur === '=') {
+        calculate();
+    }
+    // Si on clique sur C, on efface tout
+    else if (valeur === 'C') {
+        clearall();
+    }
+    // Si on clique sur la flèche arrière, on efface le dernier caractère
+    else if (valeur === '←') {
+        deletelast();
+    }
+    // Pour tous les autres boutons (chiffres et opérateurs)
+    else {
+        addtodisplay(valeur);
+    }
 }
+
+// Fonction pour ajouter un nouveau caractère à l'affichage
+function addtodisplay(valeur) {
+    Valuecalc = Valuecalc + valeur;
+    display.value = Valuecalc;
+}  // on calcule la valeur grâce à la variable qu'on stock sur Valuecalc
+
+// Fonction pour effacer tout l'affichage
+function clearall() {
+    Valuecalc = "";
+    display.value = Valuecalc;
+} 
+
+// Fonction pour calculer le résultat
+function calculate() {
+    try {
+       
+        Valuecalc = eval(Valuecalc); // eval sert à calculer et afficher le resultat du display.value
+        display.value = Valuecalc;
+    } catch (erreur) {
+        // Si il y a une erreur, on affiche "Erreur"
+        display.value = 'Erreur'; // fonction ajoutée en cas d'erreur
+    }
+}
+
+// Fonction pour effacer le dernier caractère
+function deletelast() {
+    if (Valuecalc.length > 0) {
+        // On enlève le dernier caractère de la chaîne
+        Valuecalc = Valuecalc.slice(0, -1);
+        display.value = Valuecalc;
+    }
+}  // on utilise la fonction slice pour effacé le dernier élement 
+
+
+
+// Gestion du clavier
+document.addEventListener('keyup', function(event) {
+    const touch = event.key; 
+    // on récupère la valeur de la "touch" qu'on a touché grâce au .key 
+    //qui à été enclenché juste avant par le 'keyup'
+    
+    // Si on appuie sur Entrée, c'est comme si on appuyait sur =
+    if (touch === 'Enter') {
+        ClickBouton('=');
+    }
+    // Si on appuie sur Backspace, on efface le dernier caractère
+    else if (touch === 'Backspace') {
+        deletelast();
+    }
+    // Si on appuie les chiffres et opérateurs cela va récupérerleur valeur (Clickbouton)
+    else if ('0123456789+-*/.='.includes(touch)) {
+        ClickBouton(touch);
+    }
+});
 
     
 
